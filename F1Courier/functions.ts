@@ -37,5 +37,5 @@ export const calculateParcelByDimensionFunction = (parcel: Dimension) => {
 };
 
 export const sum = (inputs: number[]): number => {
-  return inputs.reduce((accumulator, inputNumber) => inputNumber + accumulator);
+  return inputs.reduce((accumulator, inputNumber) => inputNumber + accumulator, 0);
 };

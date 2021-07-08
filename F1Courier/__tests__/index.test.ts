@@ -31,6 +31,18 @@ test('All parcels should be categorized and priced', () => {
   });
 });
 
+test('output should be 0 if passing in empty array', () => {
+  const courier = new F1Courier();
+  const input: Dimension[] = [];
+
+  const result = courier.calculateCost({ parcels: input });
+
+  expect(result).toStrictEqual({
+    allParcelsPricedAndLabeled: [],
+    totalAmount: 0,
+  });
+});
+
 test('should handle unknown (this case technically is impossible with proper types)', () => {
   const courier = new F1Courier();
   const input: Dimension[] = [
