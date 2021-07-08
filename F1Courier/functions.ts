@@ -35,3 +35,7 @@ export const calculateParcelByDimensionFunction = (parcel: Dimension) => {
 
     return { type: ParcelType.UNKNOWN, cost: CostAmount.UNKNOWN };
 };
+
+export const sum = (inputs: number[]): number => {
+    return inputs.reduce((accumulator, inputNumber) => inputNumber + accumulator);
+};
