@@ -4,16 +4,20 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "tsc",
+    "prettier": "prettier --write F1Courier/**/*.ts"
   },
   "author": "Ricky Dua",
   "license": "ISC",
   "dependencies": {
-    "@types/jest": "^26.0.24",
+    "@types/node": "^16.0.1",
     "jest": "^27.0.6",
     "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "prettier": "^2.3.2"
+    "@types/jest": "^26.0.24",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.3"
   }
 }
