@@ -1,0 +1,19 @@
+{
+  "name": "aml",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Ricky Dua",
+  "license": "ISC",
+  "dependencies": {
+    "@types/jest": "^26.0.24",
+    "jest": "^27.0.6",
+    "typescript": "^4.3.5"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}
