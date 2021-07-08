@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "prettier": "prettier --write F1Courier/**/*.ts"
+    "prettier": "prettier --write F1Courier/**/**/*.ts"
   },
   "author": "Ricky Dua",
   "license": "ISC",
