@@ -1,3 +1,4 @@
+import { OVERWEIGHT_FEE, WEIGHTLIMIT } from './constants';
 import { ParcelCostAmount, ParcelDimension, ParcelType } from './enums';
 import { CalculateWeightCostInput, ParcelAttributes } from './types';
 
@@ -56,9 +57,21 @@ export const calculateParcelByDimensionFunction = (parcel: ParcelAttributes) => 
     weight: parcel.weight,
   };
 };
+
+export const calculateParcelByWeightFunction = ({
+  type,
+  weight,
+  cost,
+}: CalculateWeightCostInput) => {
+  if (type === ParcelType.UNKNOWN) {
+    return { type, cost };
   }
 
-  return { type: ParcelType.UNKNOWN, cost: CostAmount.UNKNOWN };
+  const extraWeight = Math.round(weight) - WEIGHTLIMIT[type];
+  const result = extraWeight * OVERWEIGHT_FEE;
+  const extraWeightFee = result < 0 ? 0 : result;
+
+  return { type, cost: cost + extraWeightFee };
 };
 
 export const sum = (inputs: number[]): number => {
