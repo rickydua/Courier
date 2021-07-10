@@ -152,7 +152,7 @@ test('should ignore weight calculation if unknown type parcel', () => {
   const parcel1 = { x: 9, y: 4, z: 8, weight: 2 }; // small - equal weight
 
   // @ts-ignore
-  const parcel2 = { x: undefined, y: 9, z: 7, weight: 2.3 }; //medium
+  const parcel2 = { x: undefined, y: 9, z: 7, weight: 6 }; //medium
 
   // @ts-ignore
   const input: ParcelAttributes[] = [parcel1, parcel2];
