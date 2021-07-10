@@ -1,12 +1,17 @@
-import { CostAmount, ParcelDimension, ParcelType } from './enums';
+import { ParcelCostAmount, ParcelDimension, ParcelType } from './enums';
+import { CalculateWeightCostInput, ParcelAttributes } from './types';
 
-export const calculateParcelByDimensionFunction = (parcel: Dimension) => {
+export const calculateParcelByDimensionFunction = (parcel: ParcelAttributes) => {
   if (
     parcel.x < ParcelDimension.SMALL_PARCEL &&
     parcel.y < ParcelDimension.SMALL_PARCEL &&
     parcel.z < ParcelDimension.SMALL_PARCEL
   ) {
-    return { type: ParcelType.SMALL, cost: CostAmount.SMALL };
+    return {
+      type: ParcelType.SMALL,
+      cost: ParcelCostAmount.SMALL,
+      weight: parcel.weight,
+    };
   }
 
   if (
@@ -14,7 +19,11 @@ export const calculateParcelByDimensionFunction = (parcel: Dimension) => {
     parcel.y < ParcelDimension.MEDIUM_PARCEL &&
     parcel.z < ParcelDimension.MEDIUM_PARCEL
   ) {
-    return { type: ParcelType.MEDIUM, cost: CostAmount.MEDIUM };
+    return {
+      type: ParcelType.MEDIUM,
+      cost: ParcelCostAmount.MEDIUM,
+      weight: parcel.weight,
+    };
   }
 
   if (
@@ -22,7 +31,11 @@ export const calculateParcelByDimensionFunction = (parcel: Dimension) => {
     parcel.y < ParcelDimension.LARGE_PARCEL &&
     parcel.z < ParcelDimension.LARGE_PARCEL
   ) {
-    return { type: ParcelType.LARGE, cost: CostAmount.LARGE };
+    return {
+      type: ParcelType.LARGE,
+      cost: ParcelCostAmount.LARGE,
+      weight: parcel.weight,
+    };
   }
 
   if (
@@ -30,7 +43,19 @@ export const calculateParcelByDimensionFunction = (parcel: Dimension) => {
     parcel.y >= ParcelDimension.LARGE_PARCEL ||
     parcel.z >= ParcelDimension.LARGE_PARCEL
   ) {
-    return { type: ParcelType.XLARGE, cost: CostAmount.XLARGE };
+    return {
+      type: ParcelType.XLARGE,
+      cost: ParcelCostAmount.XLARGE,
+      weight: parcel.weight,
+    };
+  }
+
+  return {
+    type: ParcelType.UNKNOWN,
+    cost: ParcelCostAmount.UNKNOWN,
+    weight: parcel.weight,
+  };
+};
   }
 
   return { type: ParcelType.UNKNOWN, cost: CostAmount.UNKNOWN };

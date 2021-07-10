@@ -6,7 +6,7 @@ export enum ParcelType {
   UNKNOWN = 'UNKNOWN',
 }
 
-export enum CostAmount {
+export enum ParcelCostAmount {
   SMALL = 3,
   MEDIUM = 8,
   LARGE = 15,
